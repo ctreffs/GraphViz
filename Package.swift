@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "GraphViz",
-            targets: ["GraphViz", "DOT"]),
+            targets: ["Core", "DOT", "Output"]),
         .library(
             name: "GraphVizBuilder",
             targets: ["GraphVizBuilder"]),
@@ -22,19 +22,25 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "GraphViz",
+            name: "Core",
             dependencies: []),
         .target(
             name: "DOT",
-            dependencies: ["GraphViz"]),
+            dependencies: ["Core"]),
+        .target(
+            name: "Output",
+            dependencies: ["Core", "DOT"]),
         .target(
             name: "GraphVizBuilder",
-            dependencies: ["GraphViz"]),
+            dependencies: ["Core"]),
         .testTarget(
-            name: "GraphVizTests",
-            dependencies: ["GraphViz", "DOT"]),
+            name: "CoreTests",
+            dependencies: ["Core", "DOT"]),
+        .testTarget(
+            name: "OutputTests",
+            dependencies: ["Core", "DOT", "Output"]),
         .testTarget(
             name: "GraphVizBuilderTests",
-            dependencies: ["GraphViz", "DOT", "GraphVizBuilder"]),
+            dependencies: ["Core", "DOT", "GraphVizBuilder"]),
     ]
 )

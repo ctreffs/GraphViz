@@ -242,14 +242,6 @@ extension Graph {
         public var comment: String?
 
         /**
-         Specifies the name of the layout algorithm to use, such as "dot" or "neato". Normally, graphs should be kept independent of a type of layout. In some cases, however, it can be convenient to embed the type of layout desired within the graph. For example, a graph containing position information from a layout might want to record what the associated layout algorithm was.
-
-         > This attribute takes precedence over the -K flag or the actual command name used.
-         */
-        @Attribute("layout")
-        public var layoutAlgorithm: LayoutAlgorithm?
-
-        /**
          If the value of the attribute is "out", then the outedges of a node, that is, edges with the node as its tail node, must appear left-to-right in the same order in which they are defined in the input. If the value of the attribute is "in", then the inedges of a node must appear left-to-right in the same order in which they are defined in the input. If defined as a graph or subgraph attribute, the value is applied to all nodes in the graph or subgraph. Note that the graph attribute takes precedence over the node attribute.
          */
         @Attribute("ordering")
@@ -885,7 +877,6 @@ extension Graph.Attributes {
             _label,
             _labelDimensionUnit,
             _labelScheme,
-            _layoutAlgorithm,
             _layoutDimensions,
             _levelConstraintStrictness,
             _margin,

@@ -57,7 +57,7 @@ extension Node {
     public enum Size: Hashable {
         case automatic
         case shape
-        case fixed(GraphViz.Size)
+        case fixed(Core.Size)
     }
 
     public enum Style: Hashable {

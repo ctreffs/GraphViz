@@ -1,5 +1,5 @@
 import XCTest
-import GraphViz
+import Core
 import DOT
 @testable import GraphVizBuilder
 

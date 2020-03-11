@@ -1,11 +1,10 @@
 import Foundation
-import GraphViz
-
-// MARK: - Render
+import Core
+import DOT
 
 extension Graph {
     public func render(using layout: LayoutAlgorithm, to format: Format) throws -> Data {
-        let encoded = DOTEncoder().encode(self)
+        let encoded = DOTEncoder.encode(self)
 
         let url = URL(fileURLWithPath: "/usr/local/bin/").appendingPathComponent(layout.rawValue)
 
